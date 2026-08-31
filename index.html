@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Plant Parent's Field Guide</title>
+    <meta name="description" content="A premium PDF houseplant care guide that replaces guesswork with a simple method of observation.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;1,400&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --color-primary: #1f3626;
+            --color-primary-light: #24432d;
+            --color-accent: #b08a4e;
+            --color-bg: #faf8f2;
+            --color-text: #22281f;
+            --color-text-muted: #5c6b5c;
+            --color-sage: #8faa8f;
+            --color-sage-pale: #e7ede4;
+            
+            --font-serif: Georgia, serif;
+            --font-sans: Arial, sans-serif;
+            
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --spacing-xl: 6rem;
+            
+            --radius-sm: 4px;
+            --radius-md: 12px;
+            --radius-lg: 24px;
+            
+            --transition: 0.3s ease;
+        }
+
+        /* CSS Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-serif);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.7;
+            font-size: 1.125rem;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2 {
+            font-family: var(--font-serif);
+            color: var(--color-primary);
+        }
+
+        h3, h4, .nav-logo, .button, .eyebrow, .footer-tagline, .author, .faq-question, .offer-badge {
+            font-family: var(--font-sans);
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            line-height: 1.2;
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+        }
+
+        h3 {
+            font-size: 0.6875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: var(--spacing-xs);
+            color: var(--color-primary);
+        }
+
+        h4 {
+            font-size: 0.6875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        p {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        img, svg {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--color-primary);
+        }
+
+        /* Layout */
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-sm);
+        }
+
+        section {
+            padding: var(--spacing-xl) 0;
+        }
+
+        /* Buttons */
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--color-primary);
+            color: #fff;
+            padding: 1rem 2.5rem;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-align: center;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: var(--color-primary-light);
+            transform: translateY(-2px);
+        }
+
+        .button.secondary {
+            background-color: transparent;
+            color: var(--color-primary);
+            border: 1px solid var(--color-primary);
+        }
+
+        .button.secondary:hover {
+            background-color: var(--color-sage-pale);
+        }
+
+        /* Nav */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(250, 248, 242, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(176, 138, 78, 0.3);
+            padding: var(--spacing-sm) 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-primary);
+        }
+
+        .nav-logo svg {
+            width: 32px;
+            height: 32px;
+            stroke: var(--color-primary);
+            fill: none;
+        }
+
+        .nav-cta {
+            font-size: 0.75rem;
+            padding: 0.5rem 1.25rem;
+            background-color: var(--color-primary);
+            color: white;
+            border-radius: 4px;
+        }
+
+        /* Hero */
+        .hero {
+            padding-top: calc(var(--spacing-xl) + 60px);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            font-size: 0.6875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--color-accent);
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .hero-subheadline {
+            font-size: 1.125rem;
+            color: var(--color-text-muted);
+            max-width: 700px;
+            margin: 0 auto var(--spacing-md);
+        }
+
+        .trust-line {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--color-text-muted);
+            margin-top: var(--spacing-sm);
+            font-style: italic;
+        }
+
+        /* Problem Section */
+        .problem-section {
+            background-color: var(--color-sage-pale);
+            color: var(--color-primary);
+            text-align: center;
+            border-top: 1px solid rgba(176, 138, 78, 0.2);
+            border-bottom: 1px solid rgba(176, 138, 78, 0.2);
+        }
+
+        .problem-section h2 {
+            color: var(--color-primary);
+        }
+
+        .problem-list {
+            list-style: none;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+            background: #fff;
+            padding: 2rem;
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(176, 138, 78, 0.2);
+        }
+
+        .problem-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: var(--spacing-sm);
+            font-size: 1.125rem;
+            color: var(--color-text-muted);
+        }
+
+        .problem-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--color-accent);
+            font-weight: bold;
+        }
+
+        /* Solution Section */
+        .solution-section {
+            text-align: center;
+        }
+        
+        .pillar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+
+        .pillar-card {
+            background: transparent;
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(176, 138, 78, 0.3);
+            transition: var(--transition);
+        }
+
+        .pillar-card:hover {
+            background: rgba(255,255,255,0.5);
+            transform: translateY(-5px);
+        }
+
+        .pillar-icon {
+            width: 32px;
+            height: 32px;
+            margin: 0 auto var(--spacing-sm);
+            stroke: var(--color-accent);
+            fill: none;
+        }
+        
+        .pillar-card p {
+            font-size: 0.875rem;
+            color: var(--color-text-muted);
+        }
+
+        /* What's Inside */
+        .inside-section {
+            background-color: var(--color-primary);
+            color: white;
+            border-radius: 24px;
+            margin: 2rem var(--spacing-sm);
+            padding: var(--spacing-xl) var(--spacing-md);
+        }
+
+        .inside-section h2 {
+            color: var(--color-accent);
+        }
+
+        .inside-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-sm);
+            max-width: 800px;
+            margin: 0 auto;
+            counter-reset: feature-counter;
+        }
+
+        .feature-block {
+            display: flex;
+            flex-direction: column;
+            padding: 1rem 0;
+            background: transparent;
+            border-left: none;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+        }
+
+        .feature-icon {
+            display: none;
+        }
+
+        .feature-content {
+            width: 100%;
+            padding-right: 2rem;
+        }
+
+        .feature-content h4 {
+            color: white;
+            margin-bottom: 0.25rem;
+        }
+
+        .feature-content p {
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 0;
+        }
+
+        .feature-block::after {
+            counter-increment: feature-counter;
+            content: "0" counter(feature-counter);
+            position: absolute;
+            right: 0;
+            top: 1rem;
+            font-family: var(--font-sans);
+            color: var(--color-accent);
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        /* Who It's For */
+        .who-section {
+            text-align: center;
+            background: transparent;
+        }
+
+        .who-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+
+        .who-card {
+            padding: var(--spacing-md);
+            background: rgba(255,255,255,0.5);
+            border: 1px solid rgba(176, 138, 78, 0.1);
+            border-radius: var(--radius-lg);
+            color: var(--color-primary);
+        }
+
+        .who-card p {
+            margin: 0;
+            font-size: 1rem;
+            font-style: italic;
+        }
+
+        /* Social Proof */
+        .testimonials {
+            background-color: transparent;
+            color: var(--color-text);
+        }
+
+        .testimonials h2 {
+            text-align: center;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-md);
+            background: rgba(255,255,255,0.5);
+            padding: 2rem;
+            border-radius: 24px;
+            border: 1px solid rgba(176, 138, 78, 0.1);
+        }
+
+        .testimonial-card {
+            background: transparent;
+            padding: 0;
+            border: none;
+            border-left: 2px solid var(--color-accent);
+            padding-left: 1rem;
+            border-radius: 0;
+        }
+
+        .stars {
+            display: none;
+        }
+
+        .quote {
+            font-size: 1rem;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+            color: var(--color-text);
+        }
+
+        .author {
+            font-size: 0.625rem;
+            color: var(--color-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Pricing */
+        .pricing-section {
+            text-align: center;
+        }
+
+        .offer-card {
+            max-width: 500px;
+            margin: 0 auto;
+            background: #fff;
+            padding: var(--spacing-lg) var(--spacing-md);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(176, 138, 78, 0.3);
+            position: relative;
+            box-shadow: none;
+        }
+
+        .offer-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--color-accent);
+            color: #fff;
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            font-size: 0.6875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .price {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            color: var(--color-primary);
+            font-weight: 700;
+            line-height: 1;
+            margin: var(--spacing-sm) 0;
+        }
+
+        /* FAQ */
+        .faq-section {
+            background-color: rgba(255,255,255,0.3);
+            border-radius: 24px;
+            margin: 2rem auto;
+            max-width: calc(1000px - 2rem);
+            padding: var(--spacing-xl) var(--spacing-md);
+            border: 1px solid rgba(176, 138, 78, 0.2);
+        }
+
+        .faq-section h2 {
+            text-align: center;
+        }
+
+        .faq-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid rgba(176, 138, 78, 0.2);
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            padding: 1.5rem 0;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-primary);
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-icon {
+            transition: transform 0.3s ease;
+            color: var(--color-accent);
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-answer-inner {
+            padding-bottom: 1.5rem;
+            color: var(--color-text-muted);
+            font-size: 0.875rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: transparent;
+            color: var(--color-text-muted);
+            padding: var(--spacing-md) 0;
+            text-align: center;
+            font-size: 0.625rem;
+            border-top: 1px solid rgba(176, 138, 78, 0.3);
+            font-family: var(--font-sans);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .footer-logo {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            text-transform: none;
+            letter-spacing: normal;
+        }
+        
+        .footer-tagline {
+            display: none;
+        }
+
+        .footer-divider {
+            display: none;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Utilities */
+        .gold-rule {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .inside-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <div class="nav-logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+                    <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+                </svg>
+                PlantWise
+            </div>
+            <a href="https://drive.google.com/uc?export=download&id=1CQvxZDy2-3NtdKZMbwmr3N5tk3ubGGzX" class="button nav-cta">Buy Now</a>
+        </div>
+    </header>
+
+    <section class="hero fade-in">
+        <div class="container">
+            <span class="eyebrow">A Field Guide For Plant Parents</span>
+            <h1>Most houseplants don't die from neglect. <br><span class="italic">Intentions are the problem.</span></h1>
+            <p class="hero-subheadline">Stop guessing. The Plant Parent's Field Guide replaces confusing watering schedules with a simple method of observation. Master light, watering, 16 common plants, troubleshooting, and pests.</p>
+            <div class="gold-rule"></div>
+            <a href="https://drive.google.com/uc?export=download&id=1CQvxZDy2-3NtdKZMbwmr3N5tk3ubGGzX" class="button">Get The Guide &mdash; Instant Download</a>
+            <span class="trust-line">No subscriptions. One-time $9.99 purchase. Instant PDF download.</span>
+        </div>
+    </section>
+
+    <section class="problem-section fade-in">
+        <div class="container">
+            <h2>The cycle you're stuck in.</h2>
+            <ul class="problem-list">
+                <li>Following "once a week" watering schedules that don't actually work.</li>
+                <li>Guessing whether a spot in your home is truly "bright enough."</li>
+                <li>Not knowing if yellow leaves mean too much water, or too little.</li>
+                <li>Losing a plant and not even knowing why.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="solution-section fade-in">
+        <div class="container">
+            <h2>Read the plant, not the calendar.</h2>
+            <p>Our core method shifts you away from arbitrary rules and toward reading the environment. It's built on four simple pillars.</p>
+            
+            <div class="pillar-grid">
+                <div class="pillar-card">
+                    <svg class="pillar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="12" cy="12" r="4"/>
+                        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+                    </svg>
+                    <h3>Light</h3>
+                    <p>Stop guessing. Use the simple Shadow Test to know exactly what kind of light you have.</p>
+                </div>
+                <div class="pillar-card">
+                    <svg class="pillar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+                    </svg>
+                    <h3>Water</h3>
+                    <p>Master the finger test, the weight test, and a seasonal rhythm that prevents root rot.</p>
+                </div>
+                <div class="pillar-card">
+                    <svg class="pillar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/>
+                        <path d="M12 12v6"/>
+                    </svg>
+                    <h3>Environment</h3>
+                    <p>Understand how temperature, humidity, and airflow affect the soil drying process.</p>
+                </div>
+                <div class="pillar-card">
+                    <svg class="pillar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M2 12c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+                        <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+                    </svg>
+                    <h3>Observation</h3>
+                    <p>Learn to spot the early signs of thirst, stress, or pests before it's too late.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="inside-section fade-in">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 1rem;">What's Inside The Guide</h2>
+            <p style="text-align: center; margin-bottom: 3rem; color: var(--color-text-muted);">A beautifully designed, deeply practical reference for your home jungle.</p>
+            
+            <div class="inside-grid">
+                <!-- Feature 1 -->
+                <div class="feature-block">
+                    <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <div class="feature-content">
+                        <h4>The Fundamentals</h4>
+                        <p>Light, water, humidity, soil, and temperature explained properly.</p>
+                    </div>
+                </div>
+                <!-- Feature 2 -->
+                <div class="feature-block">
+                    <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <div class="feature-content">
+                        <h4>The Shadow Test</h4>
+                        <p>A simple no-gadget method to read your home's actual light levels.</p>
+                    </div>
+                </div>
+                <!-- Feature 3 -->
+                <div class="feature-block">
+                    <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <div class="feature-content">
+                        <h4>The Watering Method</h4>
+                        <p>Finger test, weight test, and a seasonal watering rhythm that replaces schedules.</p>
+                    </div>
+                </div>
+                <!-- Feature 4 -->
+                <div class="feature-block">
+                    <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <div class="feature-content">
+                        <h4>Soil, Pots & Repotting</h4>
+                        <p>Choosing the right mix and container, and knowing exactly when to size up.</p>
+                    </div>
+                </div>
+                <!-- Feature 5 -->
+                <div class="feature-block">
+                    <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <div class="feature-content">
+                        <h4>16 Full Plant Profiles</h4>
+                        <p>Light, water, pet toxicity, and a pro tip for each — from easy Pothos to particular Fiddle Leaf Figs.</p>
+                    </div>
+                </div>
+                <!-- Feature 6 -->
+                <div class="feature-block">
+                    <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <div class="feature-content">
+                        <h4>The Troubleshooting Matrix</h4>
+                        <p>Symptom → likely cause → fix, organized for a fast diagnosis while standing over the plant.</p>
+                    </div>
+                </div>
+                <!-- Feature 7 -->
+                <div class="feature-block">
+                    <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <div class="feature-content">
+                        <h4>Pest ID & Treatment</h4>
+                        <p>How to spot and organically treat spider mites, mealybugs, fungus gnats, scale, and thrips.</p>
+                    </div>
+                </div>
+                <!-- Feature 8 -->
+                <div class="feature-block">
+                    <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <div class="feature-content">
+                        <h4>The Seasonal Care Calendar</h4>
+                        <p>What changes across spring, summer, fall, and winter.</p>
+                    </div>
+                </div>
+                <!-- Feature 9 -->
+                <div class="feature-block">
+                    <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <div class="feature-content">
+                        <h4>Fertilizing, Simplified</h4>
+                        <p>What N-P-K actually means and a feeding schedule that works.</p>
+                    </div>
+                </div>
+                <!-- Feature 10 -->
+                <div class="feature-block">
+                    <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <div class="feature-content">
+                        <h4>Propagation Basics</h4>
+                        <p>4 core methods for turning one plant into many.</p>
+                    </div>
+                </div>
+                <!-- Feature 11 -->
+                <div class="feature-block">
+                    <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <div class="feature-content">
+                        <h4>Printable Trackers</h4>
+                        <p>A watering log and a new-plant checklist for your fridge.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="who-section fade-in">
+        <div class="container">
+            <h2>Who is this for?</h2>
+            <div class="who-grid">
+                <div class="who-card">
+                    <p>"Brand-new plant parents starting their first pothos."</p>
+                </div>
+                <div class="who-card">
+                    <p>"People who've killed 2-3 plants already and want to stop the pattern."</p>
+                </div>
+                <div class="who-card">
+                    <p>"Anyone building a collection who wants a reference, not another Instagram opinion."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- [REPLACE WITH REAL TESTIMONIALS] -->
+    <section class="testimonials fade-in">
+        <div class="container">
+            <h2>Trusted by growing collections.</h2>
+            <div class="gold-rule"></div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="quote">"I always thought I just had a 'black thumb.' Turns out I was just overwatering my Snake Plant because an app told me to. The Shadow Test alone was worth the price."</p>
+                    <div class="author">— Sarah T.</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="quote">"Finally, a guide that doesn't talk down to me but also doesn't drown me in botany degrees. The troubleshooting matrix is pinned to my fridge."</p>
+                    <div class="author">— Marcus R.</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="quote">"It feels like having a knowledgeable friend standing next to you while you stare at a sad Calathea. Beautifully designed and actually useful."</p>
+                    <div class="author">— Emily C.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- [/REPLACE WITH REAL TESTIMONIALS] -->
+
+    <section class="pricing-section fade-in">
+        <div class="container">
+            <div class="offer-card">
+                <div class="offer-badge">Lifetime Access</div>
+                <h2>The Plant Parent's Field Guide</h2>
+                <p>One-time payment for lifetime access to the complete digital guide.</p>
+                <div class="price">$9.99</div>
+                <p style="font-weight: 500; color: var(--color-primary); margin-bottom: 2rem;">Instant PDF Download</p>
+                <a href="https://drive.google.com/uc?export=download&id=1CQvxZDy2-3NtdKZMbwmr3N5tk3ubGGzX" class="button" style="width: 100%;">Buy Now</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section fade-in">
+        <div class="container faq-container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="gold-rule"></div>
+            
+            <div class="faq-item">
+                <button class="faq-question">
+                    What format is this in?
+                    <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        It's a high-resolution PDF, beautifully formatted to be readable on any phone, tablet, or computer. You can also print the tracking sheets at home.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    Is this for indoor or outdoor plants?
+                    <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Strictly for indoor houseplants. The environment and care rhythms are very different outdoors.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    Do I need to be experienced with plants already?
+                    <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Not at all. It's written specifically to take you from a nervous beginner to a confident plant parent. No jargon, just clear methods.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    How is this different from free info online?
+                    <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Free info is often contradictory and confusing (e.g. "Water sparingly but keep moist"). This guide is a structured, step-by-step method that cuts out the noise and gives you a unified system.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" style="border-bottom: none;">
+                <button class="faq-question">
+                    Do I get updates if the guide is revised?
+                    <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Yes! You'll receive an email with a secure download link to the latest version whenever we make major updates or add new plant profiles.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">PlantWise</div>
+            <div class="footer-tagline">Learn. Care. Thrive.</div>
+            <div class="footer-divider"></div>
+            <p>The Plant Parent's Field Guide</p>
+            <p style="color: rgba(255,255,255,0.5); margin-top: 1rem;">Copyright &copy; 2026. All rights reserved. <br> <!-- [CONTACT PLACEHOLDER] hello@example.com --></p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.closest('.faq-item');
+                const answer = item.querySelector('.faq-answer');
+                const isActive = item.classList.contains('active');
+
+                // Close all others
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    otherItem.classList.remove('active');
+                    otherItem.querySelector('.faq-answer').style.maxHeight = null;
+                });
+
+                // Toggle current
+                if (!isActive) {
+                    item.classList.add('active');
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                }
+            });
+        });
+
+        // Scroll Fade-in Animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
+
